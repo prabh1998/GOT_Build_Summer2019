@@ -6,6 +6,7 @@
     lightBox = document.querySelector('.lightBox');
     closeButton = document.querySelector('.close-lightBox');
     houseVideo = document.querySelector('.house-video');
+    bannerImages = document.querySelector("#houseImages");
 
   function popLightBox() {
     //debug so far and make sure the event handling works
@@ -25,8 +26,34 @@
 
     houseVideo.pause();
   }
-  sigils.forEach(sigil => sigil.addEventListener("click", popLightBox));
+  function animateBanners() {
+    //we need and  offset that we can multiply by to animate
+    //our banners to the left and ake the active one show up
+    
+    let offset = 600,
+        multiplier = this.dataset.offset; 
+        // this is the dataset offset custom data attribute
+        // on each of the sigils
+    console.log(offset * multiplier + "px");
+
+    //move the banners to the left using the product of our math
+    
+    bannerImages.style.right = `${offset * multiplier + "px"}`;
+    
+    // debugger;
+  }
+
+
+
+
+
+
+  // sigils.forEach(sigil => sigil.addEventListener("click", popLightBox));
+
+  sigils.forEach(sigil => sigil.addEventListener("click", animateBanners));
+
   closeButton.addEventListener("click", closeLightBox);
+
   houseVideo.addEventListener('ended', closeLightBox);
 
 })();
