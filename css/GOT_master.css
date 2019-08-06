@@ -124,10 +124,18 @@ main {
   color: white;
 }
 
-
+.house-info{
+	display: block;
+	margin: 0 auto;
+	margin-top: 30px;
+	font-size: 18px;
+	color: #fff;
+	width:50%;
+}
 
 video {
 	width: 85%;
 	margin: 10% auto 10% auto;
 	border: thin solid #949393;
+	display: block;
 }
